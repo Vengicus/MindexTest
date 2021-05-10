@@ -1,0 +1,10 @@
+E:\MINDEX\sr-code-challenge-dotnet\code-challenge\bin\Debug\netcoreapp2.1\code-challenge.deps.json
+E:\MINDEX\sr-code-challenge-dotnet\code-challenge\bin\Debug\netcoreapp2.1\code-challenge.runtimeconfig.json
+E:\MINDEX\sr-code-challenge-dotnet\code-challenge\bin\Debug\netcoreapp2.1\code-challenge.runtimeconfig.dev.json
+E:\MINDEX\sr-code-challenge-dotnet\code-challenge\bin\Debug\netcoreapp2.1\code-challenge.dll
+E:\MINDEX\sr-code-challenge-dotnet\code-challenge\bin\Debug\netcoreapp2.1\code-challenge.pdb
+E:\MINDEX\sr-code-challenge-dotnet\code-challenge\obj\Debug\netcoreapp2.1\code-challenge.csproj.CoreCompileInputs.cache
+E:\MINDEX\sr-code-challenge-dotnet\code-challenge\obj\Debug\netcoreapp2.1\code-challenge.AssemblyInfoInputs.cache
+E:\MINDEX\sr-code-challenge-dotnet\code-challenge\obj\Debug\netcoreapp2.1\code-challenge.AssemblyInfo.cs
+E:\MINDEX\sr-code-challenge-dotnet\code-challenge\obj\Debug\netcoreapp2.1\code-challenge.dll
+E:\MINDEX\sr-code-challenge-dotnet\code-challenge\obj\Debug\netcoreapp2.1\code-challenge.pdb
