@@ -138,5 +138,69 @@ namespace code_challenge.Tests.Integration
             // Assert
             Assert.AreEqual(HttpStatusCode.NotFound, response.StatusCode);
         }
+        
+        [TestMethod]
+        public void Employee_Reports_To_All()
+        {
+            // Arrange
+            var employeeId = "16a596ae-edd3-4847-99fe-c4518e82c86f";
+            int expectedNumberReports = 4;
+
+            // Execute
+            var getRequestTask = _httpClient.GetAsync($"api/employee/numberReports/{employeeId}");
+            var response = getRequestTask.Result;
+
+            // Assert
+            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+            var report = response.DeserializeContent<ReportingStructure>();
+            Assert.AreEqual(expectedNumberReports, report.NumberOfReports);
+            Assert.AreEqual(employeeId, report.Employee.EmployeeId);
+        }
+
+        [TestMethod]
+        public void Employee_Reports_To_None()
+        {
+            // Arrange
+            var employeeId = "c0c2293d-16bd-4603-8e08-638a9d18b22c";
+            int expectedNumberReports = 0;
+
+            // Execute
+            var getRequestTask = _httpClient.GetAsync($"api/employee/numberReports/{employeeId}");
+            var response = getRequestTask.Result;
+
+            // Assert
+            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+            var report = response.DeserializeContent<ReportingStructure>();
+            Assert.AreEqual(expectedNumberReports, report.NumberOfReports);
+            Assert.AreEqual(employeeId, report.Employee.EmployeeId);
+        }
+
+        [TestMethod]
+        public void AddEmployeeCompensation()
+        {
+            var employeeId = "c0c2293d-16bd-4603-8e08-638a9d18b22c";
+            decimal salary = 125.00M;
+
+            var putRequestTask = _httpClient.PutAsync($"api/employee/compensation/{employeeId}", 
+                new StringContent(salary.ToString(), Encoding.UTF8, "application/json"));
+
+            var response = putRequestTask.Result;
+
+            // Did it even add?
+
+            Assert.IsNotNull(response);
+            Assert.AreEqual(HttpStatusCode.Created, response.StatusCode);
+
+            var getRequestTask = _httpClient.GetAsync($"api/employee/compensation/{employeeId}");
+            var response2 = getRequestTask.Result;
+
+            Assert.AreEqual(HttpStatusCode.OK, response2.StatusCode);
+            var compensation = response2.DeserializeContent<Compensation>();
+            Assert.AreEqual(salary, compensation.Salary);
+            Assert.AreEqual(employeeId, compensation.Employee.EmployeeId);
+        }
+        
     }
+
+    
 }
